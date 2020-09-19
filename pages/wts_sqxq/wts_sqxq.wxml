@@ -1,0 +1,73 @@
+<view class="back">
+  <view class="cont">
+    <view class="name">
+      <view class="logo">
+        <view class="userinfo" id="userinfo">{{rowidData.creator}}</view>
+      </view>
+      <text style="padding-left: 30rpx;font-size: 35rpx;line-height: 63rpx;">{{rowidData.title}}</text>
+    </view>
+    <view class="diveline" style="margin-bottom:40rpx"></view>
+      <van-steps 
+      steps="{{ steps }}" 
+      active="{{ active }}" 
+      active-icon="success"
+      inactive-icon="arrow"
+      direction="vertical"
+      />
+    <view class="row">
+      <view class="biaoti">被授权人</view>
+      <view class="neirong">{{rowidData.bsqr}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">身份证号</view>
+      <view class="neirong">{{rowidData.idcard}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">授权开始日期</view>
+      <view class="neirong">{{rowidData.sDate}}</view>
+    </view>
+
+    <view class="row">
+      <view class="biaoti">授权结束日期</view>
+      <view class="neirong">{{rowidData.eDate}}</view>
+    </view>
+    <view class="row">
+      <view class="biaoti">事件</view>
+      <view class="neirong">{{rowidData.leaveReason}}</view>
+    </view>
+    <view style="padding-left:20rpx;padding-top: 50rpx">公文附件</view>
+    <view class="diveline" style="margin-top:20rpx"></view>
+     <van-swipe-cell wx:for="{{filearray}}" wx:for-item="items" right-width="{{ 65 }}">
+      <van-cell-group>
+        <van-cell class="files_name" title="{{items.name}}" data-id="{{items.path}}" bindtap="showfile" value="" />
+      </van-cell-group>
+      <view slot="right" data-id="{{items.path}}" bindtap="showfile">预览</view>
+    </van-swipe-cell>
+    <view style="padding-left:20rpx;padding-top: 50rpx">流转意见</view>
+
+    <view class="diveline" style="margin-top:20rpx"></view>
+    <!-- 时间轴 -->
+    <view class="listview-container" style="margin-top:20rpx">
+      <block wx:for="{{lzyj_data}}" wx:key="item">
+        <view class="playlog-item" bindtap="itemTapped">
+          <view class="dotline">
+            <!-- 竖线 -->
+            <view class="line"></view>
+            <!-- 圆点 -->
+            <view class="dot"></view>
+            <!-- 时间戳 -->
+          </view>
+          <view class="content">
+            <text class="chapter">{{item.biaoti}}</text>
+            <text class="course">{{item.name}}</text>
+            <text class="course">{{item.dep}}</text>
+             <text class="course">{{item.tixing_time}}</text>
+            <text class="course">{{item.yijian}}</text> 
+            <text class="course">{{item.time}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+</view>

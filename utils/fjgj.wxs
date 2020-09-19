@@ -1,0 +1,18 @@
+var strUniarr = function (str, num) {
+  // console.log(str)
+  // console.log(num)
+  // console.log(str.split(" ")[num])
+  return str.split(" ")[num]
+
+}
+
+module.exports.strUniarr = strUniarr
+
+var ydxz=function(edata){
+  if (edata) {
+      var ydzx=edata.split("-")
+      return ydzx[0]+'年'+ydzx[1]+'月'
+  }
+}
+
+module.exports.ydxz = ydxz

@@ -1,0 +1,60 @@
+<!--pages/gz_xq/gz_xq.wxml-->
+<view class="content">
+  <view class="type">
+    <van-cell title="{{ydtitles}}"  style="text-align:center; font-size:40rpx" />
+  </view>
+  <view class="type">
+    <van-cell title="姓名" size='large' value="{{gzxqdata['用户名']}}" />
+  </view>
+   <view class="type">
+    <van-cell title="部门" size='large' value="{{gzxqdata['部门']}}" />
+  </view>
+   <view class="type">
+    <van-cell title="岗位工资" size='large' value="{{gzxqdata['岗位工资']}}" />
+  </view>
+   <view class="type">
+    <van-cell title="薪级工资" size='large' value="{{gzxqdata['薪级工资']}}" />
+  </view>
+   <view class="type">
+    <van-cell title="保留补贴" size='large' value="{{gzxqdata['保留补贴']}}" />
+  </view>
+   <view class="type">
+    <van-cell title="基础津贴" size='large' value="{{gzxqdata['基础津贴']}}" />
+  </view>
+   <view class="type">
+    <van-cell title="岗位津贴" size='large' value="{{gzxqdata['岗位津贴']}}" />
+  </view>
+   <view class="type">
+    <van-cell title="月考核" size='large' value="{{gzxqdata['月考核']}}" />
+  </view>
+  <view class="type">
+    <van-cell title="高层次人才及特殊岗位津贴" size='large' value="{{gzxqdata['高层次人才及特殊岗位津贴']}}" />
+  </view>
+  <view class="type">
+    <van-cell title="调整发放及补发" size='large' value="{{gzxqdata['调整发放及补发']}}" />
+  </view>
+  <view class="type">
+    <van-cell title="应发" size='large' value="{{gzxqdata['应发']}}" />
+  </view>
+
+  <view class="type">
+    <van-cell title="养老保险及职业年金" size='large' value="{{gzxqdata['养老保险及职业年金']}}" />
+  </view>
+
+  <view class="type">
+    <van-cell title="住房公积金" size='large' value="{{gzxqdata['住房公积金']}}" />
+  </view>
+  <view class="type">
+    <van-cell title="扣发" size='large' value="{{gzxqdata['扣发']}}" />
+  </view>
+  <view class="type">
+    <van-cell title="个人所得税" size='large' value="{{gzxqdata['个人所得税']}}" />
+  </view>
+  <view class="type">
+    <van-cell title="应扣" size='large' value="{{gzxqdata['应扣']}}" />
+  </view>
+  <view class="type">
+    <van-cell title="实发" size='large' value="{{gzxqdata['实发']}}" />
+  </view>
+</view>
+

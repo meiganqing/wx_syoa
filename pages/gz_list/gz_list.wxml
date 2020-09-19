@@ -1,0 +1,9 @@
+<!--pages/gz_list/gz_list.wxml-->
+<wxs module="filter" src="../../utils/fjgj.wxs"></wxs>
+<view class="content">
+  <view wx:for="{{gzdata}}" class="type">
+    <van-cell title="{{filter.ydxz(item['月度薪资'])}}" data-id="{{item.id}}" is-link bind:click="gzxq"  value="" />
+  </view>
+</view>
+
+

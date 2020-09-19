@@ -1,0 +1,135 @@
+<view class="back">
+  <!-- 类型 请假 -->
+    <view class="name">
+      <view class="logo">
+        <view class="userinfo" id="userinfo">{{rowidData.creator}}</view>
+      </view>
+      <text style="padding-left: 30rpx;font-size: 35rpx;line-height: 63rpx;">{{rowidData.title}}</text>
+    </view>
+    <view class="diveline"></view>
+     <!-- <van-steps 
+      steps="{{ steps }}" 
+      active="{{ active }}" 
+      active-icon="success"
+      direction="vertical"
+      inactive-icon="arrow"
+      /> -->
+    <view class="backwhite" style="margin-top:20rpx">
+      <view style="padding-left:26rpx;">流转意见</view>
+      <view class="diveline" style="margin-top:20rpx"></view>
+      <!-- 时间轴 -->
+      <view class="listview-container" style="margin-top:20rpx">
+        <block>
+          <view class="playlog-item" bindtap="itemTapped">
+            <view class="dotline">
+              <!-- 竖线 -->
+              <view class="line"></view>
+              <!-- 圆点 -->
+              <view class="dot"></view>
+              <!-- 时间戳 -->
+            </view>
+            <view class="content">
+              <text class="chapter">{{lzyj_data[0].biaoti}}</text>
+              <text class="course">{{lzyj_data[0].name}}</text>
+              <text class="course">{{lzyj_data[0].time}}</text>
+              <text class="course">{{lzyj_data[0].dep}}</text>
+              <text class="course">{{lzyj_data[0].yijian}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="backwhite" style="margin-top:20rpx">
+      <view class="row">
+        <view class="biaoti">名称</view>
+        <view class="neirong neirongtitle">{{rowidData.title}}</view>
+      </view>
+      <view class="row">
+        <view class="biaoti">制表人</view>
+        <view class="neirong">{{rowidData.creator}}</view>
+      </view>
+      <view class="row">
+        <view class="biaoti">制表时间</view>
+        <view class="neirong">{{rowidData.time}}</view>
+      </view>
+    </view>
+     <view class="backwhite" style="margin-top: 20rpx">
+      <view style="padding-left:26rpx;">月度报表</view>
+      <view class="diveline" style="margin-top:20rpx"></view>
+      <!-- <van-search 
+      value="{{ project_search }}" 
+      bind:change="project_search_Change"
+      placeholder="请输入查询内容" /> -->
+      <view  wx:for="{{zbcontent}}"  wx:key="index" class="row">
+        <view class="dbtcontent" wx:if="{{item.group}}">
+           <view class="biaoti">{{item.group}}</view>
+           <view class="neirong dbtcontent">
+              <view wx:for="{{item.childer}}" wx:key="index" class="neirongwidth{{index}}">
+                  <view>{{item.title}}：</view>
+                  <view class="contentzy">{{item.content}}</view>
+              </view>
+           </view>
+        </view>
+        <view  class="dbtcontent" wx:else>
+            <view class="biaoti">{{item.title}}</view>
+            <view class="neirong">{{item.content}}</view>
+        </view>
+      </view>
+      <!-- <van-collapse value="{{ activeNames }}" bind:change="onChange">
+        <van-collapse-item  wx:for="{{zbbtcontent}}" title="{{item.group}}" name="{{item.group}}">
+               <view  wx:for="{{item.childer}}"  wx:key="index" class="row">
+                    <view class="biaoti">{{item.title}}</view>
+                    <view class="neirong">{{item.content}}</view>
+                </view>
+        </van-collapse-item>
+      </van-collapse> -->
+       <view class="czbtn">
+            <text>共：{{details.length}}条</text>
+            <van-button type="primary" disabled="{{zbDataIndex<=0?true:false}}" bind:click="previous_btn" size="small">上一个</van-button>
+            <text>第：{{zbDataIndex+1}}条</text>
+            <van-button type="primary" disabled="{{zbDataIndex>=details.length-1?true:false}}" bind:click="next_btn" size="small">下一个</van-button>
+        </view>
+    </view>
+  
+    <view class="shenpi">
+      <view style="padding-left: 13px;">审核状态</view>
+      <view class="diveline" style="margin-top:20rpx"></view>
+      <view class="bottom">
+        <form bindsubmit='bindFormsubmit' class="form_btn">
+          <view class="zhuangtai">
+            <view style="padding-right: 60rpx;">审核状态</view>
+            <radio-group class="radio-group" bindchange="radioChange">
+              <label class="radio" wx:for="{{items}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+              </label>
+            </radio-group>
+          </view>
+          <!-- <view wx:if="{{xianyin==false}}" class="tuihui">退回节点
+            <view style="padding-right: 60rpx;">
+              <radio-group class="radio-group" bindchange="radioJiedian" style="padding-left: 60rpx;">
+                <label class="radio" wx:for="{{backNode}}" wx:key="key">
+                  <radio class="buka" value="{{item.Lc_xh}}" checked="{{item.checkedtype}}" />{{item.Lc_name}}
+                </label>
+              </radio-group>
+            </view>
+          </view> -->
+          <view style="padding-left: 40rpx;">
+            审核意见
+            <view class="wenbenkuang">
+              <textarea class="shenheText" bindconfirm="confirm" placeholder="输入待办事项" auto-focus='true' name="wQPYJ">
+              </textarea>
+            </view>
+          </view>
+          <view>
+            <view wx:if="{{xianyin==false}}">
+              <button class="anniu" form-type='submit'>退回</button>
+            </view>
+            <view wx:else>
+              <button class="anniu" form-type='submit'>审核通过</button>
+            </view>
+          </view>
+        </form>
+      </view>
+    </view>
+</view>
